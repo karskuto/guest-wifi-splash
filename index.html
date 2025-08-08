@@ -226,8 +226,13 @@
             </div>
             
             <div class="form-group">
-                <label class="form-label" for="name">Name (Optional)</label>
-                <input type="text" id="name" class="form-input" placeholder="Enter your name">
+                <label class="form-label" for="name">Name</label>
+                <input type="text" id="name" class="form-input" placeholder="Enter your name" required>
+            </div>
+            
+            <div class="form-group">
+                <label class="form-label" for="company">Company</label>
+                <input type="text" id="company" class="form-input" placeholder="Enter your company" required>
             </div>
             
             <button type="submit" class="connect-button" id="connectBtn">
@@ -251,6 +256,7 @@ document.getElementById('wifiForm').addEventListener('submit', function(e) {
     const statusMessage = document.getElementById('statusMessage');
     const email = document.getElementById('email').value;
     const name = document.getElementById('name').value;
+    const company = document.getElementById('company').value;
 
     // Show loading state
     connectBtn.innerHTML = '<span class="loading"></span>Connecting...';
@@ -261,7 +267,7 @@ document.getElementById('wifiForm').addEventListener('submit', function(e) {
     fetch('https://script.google.com/macros/s/AKfycbyC8poy2nhUl2WnsWNRx15UagloU279vGimQc6lEDibi-I9J3dDylQjXr97IF5gDOBVYQ/exec', {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: `email=${encodeURIComponent(email)}&name=${encodeURIComponent(name)}`
+        body: `email=${encodeURIComponent(email)}&name=${encodeURIComponent(name)}&company=${encodeURIComponent(company)}`
     })
     .then(response => response.text())
     .then(data => {
