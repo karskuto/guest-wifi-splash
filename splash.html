@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skutopia WiFi - Welcome</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #ffb6ec 0%, #fff 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        .splash-container {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            padding: 40px;
+            max-width: 450px;
+            width: 100%;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .splash-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #ffb6ec, #fff);
+        }
+        
+        .logo {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #ffb6ec, #fff);
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            font-weight: bold;
+            color: white;
+            box-shadow: 0 8px 20px rgba(255, 182, 236, 0.3);
+        }
+        
+        .brand-name {
+            font-size: 28px;
+            font-weight: 700;
+            color: #2d3748;
+            margin-bottom: 8px;
+            letter-spacing: -0.5px;
+        }
+        
+        .welcome-text {
+            color: #718096;
+            font-size: 16px;
+            margin-bottom: 30px;
+            line-height: 1.5;
+        }
+        
+        .wifi-icon {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 20px;
+            opacity: 0.8;
+        }
+        
+        .connect-form {
+            margin-bottom: 25px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+        
+        .form-label {
+            display: block;
+            color: #4a5568;
+            font-weight: 600;
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+        
+        .form-input {
+            width: 100%;
+            padding: 12px 16px;
+            border: 2px solid #e2e8f0;
+            border-radius: 10px;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            background: #f7fafc;
+        }
+        
+        .form-input:focus {
+            outline: none;
+            border-color: #667eea;
+            background: white;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+        
+        .connect-button {
+            width: 100%;
+            background: linear-gradient(135deg, #ffb6ec, #fff); /* pink to white gradient */
+            color: #d6336c; /* deep pink text */
+            border: none;
+            padding: 14px 24px;
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(255, 182, 236, 0.3);
+        }
+        
+        .connect-button:hover {
+            transform: translateY(-2px);
+            background: linear-gradient(135deg, #fff, #ffb6ec); /* reverse gradient on hover */
+            color: #ad1457; /* darker pink on hover */
+            box-shadow: 0 6px 20px rgba(255, 182, 236, 0.4);
+        }
+        
+        .connect-button:active {
+            transform: translateY(0);
+        }
+        
+        .terms-text {
+            font-size: 12px;
+            color: #a0aec0;
+            margin-top: 20px;
+            line-height: 1.4;
+        }
+        
+        .terms-link {
+            color: #667eea;
+            text-decoration: none;
+        }
+        
+        .terms-link:hover {
+            text-decoration: underline;
+        }
+        
+        .status-message {
+            margin-top: 20px;
+            padding: 12px;
+            border-radius: 8px;
+            font-weight: 500;
+            display: none;
+        }
+        
+        .status-success {
+            background: #f0fff4;
+            color: #38a169;
+            border: 1px solid #9ae6b4;
+        }
+        
+        .status-error {
+            background: #fed7d7;
+            color: #e53e3e;
+            border: 1px solid #feb2b2;
+        }
+        
+        @media (max-width: 480px) {
+            .splash-container {
+                padding: 30px 25px;
+                margin: 10px;
+            }
+            
+            .brand-name {
+                font-size: 24px;
+            }
+            
+            .welcome-text {
+                font-size: 15px;
+            }
+        }
+        
+        .loading {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 2px solid #ffffff;
+            border-radius: 50%;
+            border-top-color: transparent;
+            animation: spin 1s ease-in-out infinite;
+            margin-right: 8px;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="splash-container">
+        <div class="logo">
+            <img src="/Users/Karan/Downloads/sku icon.png" alt="Skutopia Logo" style="width:60px; height:60px; border-radius:50%;" />
+        </div>
+        <h1 class="brand-name">Skutopia</h1>
+        <p class="welcome-text">Welcome to Skutopia – you're now part of our SKUNIVERSE of innovation and fulfillment! Enjoy complimentary Wi-Fi on us; we're excited to have you here. Our team is dedicated to making shipping faster, smarter, and more sustainable for businesses of all sizes. Let's make progress together!</p>
+        
+        <!-- WiFi Icon SVG -->
+        <svg class="wifi-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 20h.01M8.5 16.5a5 5 0 017 0M5 13a10 10 0 0114 0M1.5 9.5a16 16 0 0121 0" stroke="#667eea" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        
+        <form class="connect-form" id="wifiForm">
+            <div class="form-group">
+                <label class="form-label" for="email">Email Address</label>
+                <input type="email" id="email" class="form-input" placeholder="Enter your email" required>
+            </div>
+            
+            <div class="form-group">
+                <label class="form-label" for="name">Name (Optional)</label>
+                <input type="text" id="name" class="form-input" placeholder="Enter your name">
+            </div>
+            
+            <button type="submit" class="connect-button" id="connectBtn">
+                Connect to WiFi
+            </button>
+        </form>
+        
+        <div class="status-message" id="statusMessage"></div>
+        
+        <p class="terms-text">
+            By connecting, you agree to our <a href="#" class="terms-link">Terms of Service</a> and <a href="#" class="terms-link">Privacy Policy</a>. 
+            Connection is complimentary for customers.
+        </p>
+    </div>
+
+    <script>
+document.getElementById('wifiForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    const connectBtn = document.getElementById('connectBtn');
+    const statusMessage = document.getElementById('statusMessage');
+    const email = document.getElementById('email').value;
+    const name = document.getElementById('name').value;
+
+    // Show loading state
+    connectBtn.innerHTML = '<span class="loading"></span>Connecting...';
+    connectBtn.disabled = true;
+    statusMessage.style.display = 'none';
+
+    // Send to Google Apps Script (updated URL)
+    fetch('https://script.google.com/macros/s/AKfycbyC8poy2nhUl2WnsWNRx15UagloU279vGimQc6lEDibi-I9J3dDylQjXr97IF5gDOBVYQ/exec', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: `email=${encodeURIComponent(email)}&name=${encodeURIComponent(name)}`
+    })
+    .then(response => response.text())
+    .then(data => {
+        connectBtn.innerHTML = 'Connect to WiFi';
+        connectBtn.disabled = false;
+        statusMessage.className = 'status-message status-success';
+        statusMessage.textContent = `Welcome${name ? ' ' + name : ''}! You're now connected to Skutopia WiFi.`;
+        statusMessage.style.display = 'block';
+        setTimeout(() => {
+            statusMessage.textContent = 'Redirecting to internet access...';
+            // window.location.href = 'https://skutopia.com';
+        }, 2000);
+    })
+    .catch(error => {
+        connectBtn.innerHTML = 'Connect to WiFi';
+        connectBtn.disabled = false;
+        statusMessage.className = 'status-message status-error';
+        statusMessage.textContent = 'Error connecting. Please try again.';
+        statusMessage.style.display = 'block';
+    });
+});
+        
+        // Add some interactive feedback
+        document.querySelectorAll('.form-input').forEach(input => {
+            input.addEventListener('focus', function() {
+                this.parentElement.style.transform = 'translateY(-2px)';
+            });
+            
+            input.addEventListener('blur', function() {
+                this.parentElement.style.transform = 'translateY(0)';
+            });
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'96bb30b34305c6a7',t:'MTc1NDYxNjAxNi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
