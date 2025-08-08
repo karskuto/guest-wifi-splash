@@ -278,7 +278,7 @@ document.getElementById('wifiForm').addEventListener('submit', function(e) {
         statusMessage.style.display = 'block';
         setTimeout(() => {
             statusMessage.textContent = 'Redirecting to internet access...';
-            window.open('https://www.google.com', '_blank');
+            window.location.href = 'https://www.google.com'; // Redirects the current page
         }, 2000);
     })
     .catch(error => {
